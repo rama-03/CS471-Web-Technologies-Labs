@@ -1,0 +1,71 @@
+.link {
+    display: block;
+    text-align: center;
+    padding: 35px;
+}
+
+#link1 {
+    background-color: rgb(157, 191, 225);
+}
+
+#link2 {
+    background-color: rgb(237, 199, 255);
+}
+
+#link3 {
+    background-color: rgb(255, 207, 235);
+}
+
+a:visited {
+    color: gray;
+}
+
+a:hover {
+    color: lightgoldenrodyellow;
+}
+
+a:active {
+    color: peru;
+}
+
+.formatting-title {
+    color: palevioletred;
+    background-color: lightyellow;
+}
+
+.listing-title {
+    color: white;
+    background-color: rgb(124, 158, 128);
+    padding: 20px;
+}
+
+.table1 caption {
+    font-weight: bold;
+}
+
+.table1 {
+    margin: auto;
+    border: 1px solid black;
+}
+
+.table1 th, .table1 td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.table-image {
+    width: 240px;
+    height: 200px;
+}
+
+.table2 {
+    margin: 30px auto 0;
+    border-collapse: collapse;
+}
+
+.table2 th,
+.table2 td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 5px;
+}
