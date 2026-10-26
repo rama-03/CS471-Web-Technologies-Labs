@@ -1,0 +1,15 @@
+{% extends "layouts/base.html" %}
+{% block title %} Lab 9 - Task 6 {% endblock title %}
+
+{% block content %}
+    <h2>Books by Publisher That Have a Price Greater Than 50 and Quantity Less Than 5:</h2>
+
+    {% for publisher in publishers %}
+        <p>Publisher: {{ publisher.name }}</p>
+        <p>Number of Matching Books: {{ publisher.matching_books_count }}</p>
+        <hr>
+    {% empty %}
+        <p>No publishers match the conditions.</p>
+    {% endfor %}
+{% endblock content %}
+

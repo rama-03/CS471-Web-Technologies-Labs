@@ -1,0 +1,17 @@
+{% extends "layouts/base.html" %}
+{% block title %} Lab 9 - Task 1 {% endblock title %}
+
+{% block content %}
+    <h2>Book Availability Percentages:</h2>
+
+    {% for book in books %}
+        <p>Title: {{ book.title }}</p>
+        <p>Quantity: {{ book.quantity }}</p>
+        <p>Availability: {{ book.availability_percentage|floatformat:2 }}%</p>
+        <hr>
+    {% empty %}
+        <p>No books match the conditions.</p>
+    {% endfor %}
+{% endblock content %}
+
+

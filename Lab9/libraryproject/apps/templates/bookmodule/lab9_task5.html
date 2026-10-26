@@ -1,0 +1,26 @@
+{% extends "layouts/base.html" %}
+{% block title %} Lab 9 - Task 5 {% endblock title %}
+
+{% block content %}
+    <h2>Highly Rated Books by Publisher:</h2>
+
+    {% for publisher in publishers %}
+        <h3>Publisher: {{ publisher.name }}</h3>
+        <p>Number of Highly Rated Books: {{ publisher.highly_rated_count }}</p>
+        <ul>
+            {% for book in publisher.highly_rated_books %}
+                <li>
+                    {{ book.title }} -
+                    Quantity: {{ book.quantity }} -
+                    Rating: {{ book.rating }}
+                </li>
+            {% empty %}
+                <li>No highly rated books found.</li>
+            {% endfor %}
+        </ul>
+        <hr>
+    {% empty %}
+        <p>No publishers match the conditions.</p>
+    {% endfor %}
+{% endblock content %}
+

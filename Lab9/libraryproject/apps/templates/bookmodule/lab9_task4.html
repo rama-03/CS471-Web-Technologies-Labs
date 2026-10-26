@@ -1,0 +1,17 @@
+{% extends "layouts/base.html" %}
+{% block title %} Lab 9 - Task 4 {% endblock title %}
+
+{% block content %}
+    <h2>Book Price Statistics by Publisher:</h2>
+
+    {% for publisher in publishers %}
+        <p>Publisher: {{ publisher.name }}</p>
+        <p>Average Price: {{ publisher.avg_price|floatformat:2|default_if_none:"N/A" }}</p>
+        <p>Minimum Price: {{ publisher.min_price|default_if_none:"N/A" }}</p>
+        <p>Maximum Price: {{ publisher.max_price|default_if_none:"N/A" }}</p>
+        <hr>
+    {% empty %}
+        <p>No publishers match the conditions.</p>
+    {% endfor %}
+{% endblock content %}
+
