@@ -1,0 +1,72 @@
+{% extends "layouts/base.html" %}
+{% block title %} Edit Book - Lab 10 {% endblock title %}
+
+{% block content %}
+<style>
+    .book-button {
+        display: inline-block;
+        background-color: #ADD8E6;
+        color: #000000;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 14px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    .book-button:hover {
+        background-color: #87CEEB;
+    }
+    .form-field {
+        margin-bottom: 15px;
+    }
+    .form-field label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .form-field input {
+        padding: 8px;
+        width: 300px;
+        max-width: 100%;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+    }
+</style>
+
+<h2>Edit Book</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <div class="form-field">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title"
+               value="{{ book.title }}" maxlength="50" required>
+    </div>
+
+    <div class="form-field">
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author"
+               value="{{ book.author }}" maxlength="50" required>
+    </div>
+
+    <div class="form-field">
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price"
+               value="{{ book.price }}" step="any" required>
+    </div>
+
+    <div class="form-field">
+        <label for="edition">Edition:</label>
+        <input type="number" id="edition" name="edition"
+               value="{{ book.edition }}" step="1" required>
+    </div>
+
+    <button type="submit" class="book-button">Save Changes</button>
+</form>
+
+<a href="{% url 'lab10_part1_listbooks' %}" class="book-button">
+    Back to Book List
+</a>
+{% endblock content %}

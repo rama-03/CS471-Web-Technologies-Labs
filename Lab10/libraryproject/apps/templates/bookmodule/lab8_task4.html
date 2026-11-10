@@ -1,0 +1,14 @@
+{% extends "layouts/base.html" %}
+{% block title %} Lab 8 - Task 4 {% endblock title %}
+
+{% block content %}
+    <h2>Books Sorted by Title: </h2>
+
+    {% for book in books %}
+        ID: {{ book.id }}, Title: {{ book.title }}, Author: {{ book.author }}, Edition: {{ book.edition }}
+        <hr>
+    {% empty %}
+        <p>No books match the conditions.</p>
+    {% endfor %}
+{% endblock content %}
+
