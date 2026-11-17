@@ -1,0 +1,58 @@
+{% extends "layouts/base.html" %}
+{% block title %} Add Book - Lab 10 Part 2 {% endblock title %}
+
+{% block content %}
+<style>
+    .book-button {
+        display: inline-block;
+        background-color: #ADD8E6;
+        color: #000000;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 14px;
+        font-family: inherit;
+        cursor: pointer;
+        margin-top: 10px;
+        margin-right: 8px;
+    }
+    .book-button:hover {
+        background-color: #87CEEB;
+    }
+
+    .book-form p {
+        margin-bottom: 15px;
+    }
+
+    .book-form input {
+        display: block;
+        padding: 8px;
+        width: 300px;
+        max-width: 100%;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        margin-top: 5px;
+    }
+
+    .errorlist {
+        color: red;
+    }
+</style>
+
+<h2>Add a New Book - Part 2</h2>
+
+<form method="POST" class="book-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="book-button">
+        Add Book
+    </button>
+</form>
+
+<a href="{% url 'lab10_part2_listbooks' %}" class="book-button">
+    Back to Book List
+</a>
+{% endblock content %}
+

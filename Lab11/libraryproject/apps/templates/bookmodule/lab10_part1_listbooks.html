@@ -1,0 +1,59 @@
+{% extends "layouts/base.html" %}
+{% block title %} List Books - Lab 10 {% endblock title %}
+
+{% block content %}
+<style>
+    .book-button {
+        display: inline-block;
+        background-color: #ADD8E6;
+        color: #000000;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 6px;
+        font-family: inherit;
+        text-decoration: none;
+        font-size: 14px;
+        cursor: pointer;
+        margin-right: 8px;
+    }
+    .book-button:hover {
+        background-color: #87CEEB;
+    }
+    .book-item {
+        margin-bottom: 20px;
+    }
+</style>
+
+<h2>Book List</h2>
+<a href="{% url 'lab10_part1_addbook' %}" class="book-button">Add New Book</a>
+<hr>
+
+{% for book in books %}
+    <div class="book-item">
+        <h3>{{ book.title }}</h3>
+
+        <p>Author: {{ book.author }}</p>
+        <p>Price: {{ book.price }}</p>
+        <p>Edition: {{ book.edition }}</p>
+
+        <a href="{% url 'lab10_part1_editbook' book.id %}" class="book-button">Edit</a>
+
+        <form method="POST"
+            action="{% url 'lab10_part1_deletebook' book.id %}"
+            style="display: inline;">
+
+            {% csrf_token %}
+
+            <button type="submit"
+                    class="book-button"
+                    onclick="return confirm('Are you sure you want to delete this book?');">
+                Delete
+            </button>
+
+        </form>
+    </div>
+    <hr>
+{% empty %}
+    <p>No books found.</p>
+{% endfor %}
+{% endblock content %}

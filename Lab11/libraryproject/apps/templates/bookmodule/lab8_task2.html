@@ -1,0 +1,14 @@
+{% extends "layouts/base.html" %}
+{% block title %} Lab 8 - Task 2 {% endblock title %}
+
+{% block content %}
+    <h2>Books with Edition Above 3 and "qu" in Title or Author: </h2>
+
+    {% for book in books %}
+        ID: {{ book.id }}, Title: {{ book.title }}, Author: {{ book.author }}, Edition: {{ book.edition }}
+        <hr>
+    {% empty %}
+        <p>No books match the conditions.</p>
+    {% endfor %}
+{% endblock content %}
+
